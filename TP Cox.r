@@ -1,5 +1,4 @@
 ## Main ##
-
 mlcox <- function(n,N,a,beta){
 
 	p <- length(beta)
