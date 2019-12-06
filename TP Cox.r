@@ -17,20 +17,6 @@ mlcox <- function(n,N,a,beta){
 
 	return(mle)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Générateur de données simulées pour un modèle de Cox simple ##
 gen <- function(n,a,beta){
 
@@ -54,25 +40,6 @@ gen <- function(n,a,beta){
 	}
 	return(as.data.frame(cbind(time,status,z)))
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Estimateur de la fonction de risque commune ##
 lambda0 <- function(data,t,beta){
 
@@ -91,7 +58,6 @@ lambda0 <- function(data,t,beta){
 		return(0)
 	}
 }
-
 ## Log-vraisemblance partielle de Cox ##
 pl <- function(beta,data){
 
