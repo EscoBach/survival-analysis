@@ -1,7 +1,7 @@
 #http://www.sthda.com/english/wiki/cox-proportional-hazards-model
 
 library("survival")
-#library("survminer")
+library("survminer")
 
 data("lung")
 head(lung)
@@ -12,13 +12,13 @@ summary(res.cox)
 res.cox <- coxph(Surv(time, status) ~ age + sex + ph.ecog, data =  lung)
 summary(res.cox)
 
-#ggsurvplot(survfit(res.cox), color = "#2E9FDF",ggtheme = theme_minimal())
+ggsurvplot(survfit(res.cox,data=lung), color = "#2E9FDF",ggtheme = theme_minimal())
 
 sex_df <- with(lung, data.frame(sex = c(1, 2), age = rep(mean(age, na.rm = TRUE), 2),ph.ecog = c(1, 1)))
 sex_df
 
 fit <- survfit(res.cox, newdata = sex_df)
-#ggsurvplot(fit, conf.int = TRUE, legend.labs=c("Sex=1", "Sex=2"),ggtheme = theme_minimal())
+ggsurvplot(fit, conf.int = TRUE, legend.labs=c("Sex=1", "Sex=2"),ggtheme = theme_minimal())
 
 res.c <- cox.zph(res.cox)
 
